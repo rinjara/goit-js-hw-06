@@ -11,8 +11,6 @@
 const inputRef = document.querySelector('#validation-input');
 
 inputRef.addEventListener('blur', () => {
-  //   console.log(inputRef.value.length);
-  //   console.log(inputRef.dataset.length);
   if (inputRef.value.length === parseInt(inputRef.dataset.length)) {
     inputRef.classList.remove('invalid');
     inputRef.classList.add('valid');
