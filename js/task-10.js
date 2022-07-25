@@ -17,6 +17,37 @@
 // Створи функцію destroyBoxes(), яка очищає вміст
 // div#boxes, у такий спосіб видаляючи всі створені елементи.
 
+const boxesWraperRef = document.querySelector('#boxes');
+const createBtnRef = document.querySelector('[data-create]');
+const destroyBtnRef = document.querySelector('[data-destroy]');
+const inputRef = document.querySelector('#controls');
+
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }
+
+function createBoxes(amount) {}
+
+function destroyBoxes() {}
+
+const test = inputRef.addEventListener('input', () => {
+  console.log(currentTarget.value);
+});
+
+createBtnRef.addEventListener('click', event => {
+  event.preventDefault();
+  // const addings = boxesWraperRef.value;
+});
+
+destroyBtnRef.addEventListener('click', () => {
+  // boxesWraperRef.innerHTML('');
+});
+
+// const list = images
+//   .map(
+//     ({ url, alt }) =>
+//       `<li class="gallery__item"><img src="${url}" alt="${alt}" class="gallery__img"></li>`
+//   )
+//   .join('');
+// // console.log(list);
+// galleryRef.insertAdjacentHTML('beforeend', list);
