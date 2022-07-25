@@ -12,3 +12,22 @@
 // elements.
 // 5.Виведи об'єкт із введеними даними в консоль і очисти
 // значення полів форми методом reset.
+
+const formRef = document.querySelector('.login-form');
+
+formRef.addEventListener('submit', event => {
+  event.preventDefault();
+  const { email, password } = event.target.elements;
+
+  if (email.value === '' || password.value === '') {
+    return alert(`You forgot to fill the form!`);
+  }
+
+  const values = {
+    email: email.value,
+    password: password.value,
+  };
+
+  console.log(values);
+  event.currentTarget.reset();
+});
