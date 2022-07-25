@@ -23,25 +23,27 @@ const destroyBtnRef = document.querySelector('[data-destroy]');
 const inputRef = document.querySelector('#controls');
 
 function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
 }
 
-function createBoxes(amount) {}
+let amount = '';
 
-function destroyBoxes() {}
+const getAmountFromInput = event => {
+  amount = event.target.value;
+  console.log(amount);
+};
 
-const test = inputRef.addEventListener('input', () => {
-  console.log(currentTarget.value);
-});
+const createBoxes = amount => {};
 
-createBtnRef.addEventListener('click', event => {
-  event.preventDefault();
-  // const addings = boxesWraperRef.value;
-});
+const destroyBoxes = () => {
+  boxesWraperRef.innerHTML = '';
+};
 
-destroyBtnRef.addEventListener('click', () => {
-  // boxesWraperRef.innerHTML('');
-});
+inputRef.addEventListener('input', getAmountFromInput);
+createBtnRef.addEventListener('click', createBoxes);
+destroyBtnRef.addEventListener('click', destroyBoxes);
 
 // const list = images
 //   .map(
