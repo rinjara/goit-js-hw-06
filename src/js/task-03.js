@@ -28,6 +28,8 @@ const images = [
 ];
 
 const galleryRef = document.querySelector('.gallery');
+const headForStyleRef = document.querySelector('head');
+
 const list = images
   .map(
     ({ url, alt }) =>
@@ -36,3 +38,29 @@ const list = images
   .join('');
 // console.log(list);
 galleryRef.insertAdjacentHTML('beforeend', list);
+
+const style = `<style>
+.gallery {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+
+padding: 0;
+margin: 0;
+list-style: none;
+} 
+
+.gallery__item {
+ flex-basis: calc((100% - 20px) / 3);
+} 
+
+.gallery__img {
+display: block;
+max-width: 100%;
+height: 100%;
+
+object-fit:cover;
+}
+</style>`;
+
+headForStyleRef.insertAdjacentHTML('beforeend', style);
