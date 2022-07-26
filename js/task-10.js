@@ -36,11 +36,11 @@ let boxAmount = 0;
 // };
 
 const createBoxes = amount => {
-  console.log(amount);
+  // console.log(amount);
   if (amount > 500) return alert("STOP! Don't do this. Please!\nUse value less then 500");
   let result = [];
   for (let i = 0; i < amount; i += 1) {
-    console.log(i);
+    // console.log(i);
     let div = document.createElement('div');
 
     div.style.backgroundColor = getRandomHexColor();
@@ -51,7 +51,7 @@ const createBoxes = amount => {
 
     boxAmount += 1;
   }
-  console.log(result);
+  // console.log(result);
   boxesWraperRef.append(...result);
 };
 
