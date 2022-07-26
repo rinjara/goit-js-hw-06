@@ -28,28 +28,40 @@ function getRandomHexColor() {
     .padStart(6, 0)}`;
 }
 
-let amount = '';
+// let amount = 0;
+let boxAmount = 0;
 
-const getAmountFromInput = event => {
-  amount = event.target.value;
+// const getAmountFromInput = event => {
+//   amount = parseInt(event.target.value);
+// };
+
+const createBoxes = amount => {
   console.log(amount);
-};
+  if (amount > 500) return alert("STOP! Don't do this. Please!\nUse value less then 500");
+  let result = [];
+  for (let i = 0; i < amount; i += 1) {
+    console.log(i);
+    let div = document.createElement('div');
 
-const createBoxes = amount => {};
+    div.style.backgroundColor = getRandomHexColor();
+    div.style.width = `${boxAmount * 10 + 30}px`;
+    div.style.height = `${boxAmount * 10 + 30}px`;
+
+    result.push(div);
+
+    boxAmount += 1;
+  }
+  console.log(result);
+  boxesWraperRef.append(...result);
+};
 
 const destroyBoxes = () => {
   boxesWraperRef.innerHTML = '';
+  boxAmount = 0;
 };
 
-inputRef.addEventListener('input', getAmountFromInput);
-createBtnRef.addEventListener('click', createBoxes);
+// inputRef.addEventListener('input', getAmountFromInput);
+createBtnRef.addEventListener('click', () =>
+  createBoxes(parseInt(inputRef.firstElementChild.value))
+);
 destroyBtnRef.addEventListener('click', destroyBoxes);
-
-// const list = images
-//   .map(
-//     ({ url, alt }) =>
-//       `<li class="gallery__item"><img src="${url}" alt="${alt}" class="gallery__img"></li>`
-//   )
-//   .join('');
-// // console.log(list);
-// galleryRef.insertAdjacentHTML('beforeend', list);
